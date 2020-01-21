@@ -1,0 +1,41 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'numPairs' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER_ARRAY l
+#  2. INTEGER n
+#  3. INTEGER c
+#
+
+def numPairs(l, n, c):
+    # Write your code here
+    cnt = 0;
+    for i in range(len(l)):
+        for j in range(len(l)):
+            if((l[i] + l[j]) == c and i != j):
+                cnt += 1;
+    return cnt;
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    c = int(input().strip())
+
+    l = list(map(int, input().rstrip().split()))
+
+    result = numPairs(l, n, c)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
